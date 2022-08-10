@@ -70,12 +70,7 @@ func messageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
 	}
 	// If the message is "ping" reply with "Pong!"
 	if m.Content == "go.ping" {
-		s.ChannelMessageSend(m.ChannelID, "Hassiktir!")
-	}
-
-	// If the message is "pong" reply with "Ping!"
-	if m.Content == "go.pong" {
-		s.ChannelMessageSend(m.ChannelID, "Hassiktir ping!")
+		s.ChannelMessageSend(m.ChannelID, "Pong! " + s.HeartbeatLatency().String())
 	}
 
 	if m.Content == "baklava" {
