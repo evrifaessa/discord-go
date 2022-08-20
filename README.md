@@ -1,5 +1,9 @@
 # evrifaessa/discord-go
-I thought why not make the source code open?
+![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/evrifaessa/discord-go)
+![GitHub Sponsors](https://img.shields.io/github/sponsors/evrifaessa)
+![Lines of code](https://img.shields.io/tokei/lines/github/evrifaessa/discord-go)
+
+I thought why not make the source code open? PRs appreciated.
 
 I also need a better name for the project.
 
