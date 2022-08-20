@@ -9,6 +9,16 @@ I also need a better name for the project.
 
 Invite the bot [here](https://discord.com/oauth2/authorize?scope=applications.commands%20bot&permissions=268561488&client_id=1007010887447625748).
 
+## How to run locally
+You need to have Go installed. [Here](https://www.digitalocean.com/community/tutorial_collections/how-to-install-go) is a tutorial from DigitalOcean.
+
+### Create an application if you already haven't
+Create an application over the Discord Developer Portal and create a bot account associated with that application. There are plenty of guides for this on the internet.
+
+### Run the bot using your own token
+Run `go run main.go -t TOKEN` in your terminal. Of course, you need to replace "TOKEN" with the token you got from the Discord Developer Portal.
+To make things much easier, you can also set your token as an environment variable named `TOKEN` and run the command without the `-t` argument.
+
 ## Questions
 * [Create an issue on GitHub](https://github.com/evrifaessa/discord-go/issues/new/choose) 
 * Discord: `evrifaessa#0001` (ID: 650001751050551327)
