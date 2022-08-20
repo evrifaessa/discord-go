@@ -80,4 +80,8 @@ func messageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
 	if m.Content == "go.invite" {
 		s.ChannelMessageSend(m.ChannelID, "https://discord.com/oauth2/authorize?scope=applications.commands%20bot&permissions=268561488&client_id=1007010887447625748")
 	}
+	
+	if m.Content == "go.help" {
+		s.ChannelMessageSend(m.ChannelID, "See https://github.com/evrifaessa/discord-go")
+	}
 }
