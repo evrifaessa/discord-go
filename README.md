@@ -19,7 +19,7 @@ Create an application over the Discord Developer Portal and create a bot account
 Run `go run main.go -t TOKEN` in your terminal. Of course, you need to replace "TOKEN" with the token you got from the Discord Developer Portal.
 To make things much easier, you can also set your token as an environment variable named `TOKEN` and run the command without the `-t` argument.
 
-## Questions
+## Questions?
 * [Create an issue on GitHub](https://github.com/evrifaessa/discord-go/issues/new/choose) 
 * Discord: `evrifaessa#0001` (ID: 650001751050551327)
 * Twitter: [yag1zhantw](https://twitter.com/yag1zhantw/)
