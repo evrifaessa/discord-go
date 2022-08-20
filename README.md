@@ -1,6 +1,6 @@
 # evrifaessa/discord-go
 ![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/evrifaessa/discord-go)
-![GitHub Sponsors](https://img.shields.io/github/sponsors/evrifaessa)
+[![GitHub Sponsors](https://img.shields.io/github/sponsors/evrifaessa)](https://github.com/sponsors/evrifaessa)
 ![Lines of code](https://img.shields.io/tokei/lines/github/evrifaessa/discord-go)
 
 I thought why not make the source code open? PRs appreciated.
