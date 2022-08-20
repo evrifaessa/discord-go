@@ -3,7 +3,7 @@
 [![GitHub Sponsors](https://img.shields.io/github/sponsors/evrifaessa)](https://github.com/sponsors/evrifaessa)
 ![Lines of code](https://img.shields.io/tokei/lines/github/evrifaessa/discord-go)
 
-I thought why not make the source code open? PRs appreciated.
+A very basic Discord bot written entirely in [Go](https://go.dev) using [DiscordGo](https://github.com/bwmarrin/discordgo). I started this project because I have no knowledge of Go and think the best way to learn something is to develop a project. PRs appreciated, I will gradually improve this project in my free time.
 
 I also need a better name for the project.
 
@@ -16,4 +16,4 @@ Invite the bot [here](https://discord.com/oauth2/authorize?scope=applications.co
 * E-mail: [hi@yagiz.dev](mailto:hi@yagiz.dev)
 
 ## Licensing
-evrifaessa/discord-go is open source software and is released under the Apache v2.0 license. See [LICENSE](LICENSE) for the full license terms.
+evrifaessa/discord-go is open-source software and is released under the Apache v2.0 license. See [LICENSE](LICENSE) for the full license terms.
