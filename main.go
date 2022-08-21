@@ -7,6 +7,8 @@ import (
 	"os/signal"
 	"syscall"
 
+	"github.com/evrifaessa/discord-go/events"
+
 	"github.com/bwmarrin/discordgo"
 )
 
@@ -36,11 +38,14 @@ func main() {
 		return
 	}
 
-	// Register the messageCreate func as a callback for MessageCreate events.
-	dg.AddHandler(messageCreate)
+	/* Let's load our events into the memory.
+	 * Our events are in the events/ folder. Each file in this folder is a separate event.
+	 * Check the DiscordGo documentation for more information on how the events are named.
+	 * https://pkg.go.dev/github.com/bwmarrin/discordgo#Session.AddHandler
+	 */
 
-	// In this example, we only care about receiving message events.
-	dg.Identify.Intents = discordgo.IntentsGuildMessages
+	// TODO: Dynamically load events and not hardcode them.
+	dg.AddHandler(events.MessageCreate)
 
 	// Open a websocket connection to Discord and begin listening.
 	err = dg.Open()
@@ -57,27 +62,4 @@ func main() {
 
 	// Cleanly close down the Discord session.
 	dg.Close()
-}
-
-// This function will be called (due to AddHandler above) every time a new
-// message is created on any channel that the authenticated bot has access to.
-func messageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
-
-	// Ignore all messages created by the bot itself
-	// This isn't required in this specific example but it's a good practice.
-	if m.Author.ID == s.State.User.ID {
-		return
-	}
-	// If the message is "ping" reply with "Pong!"
-	if m.Content == "go.ping" {
-		s.ChannelMessageSend(m.ChannelID, "Pong! " + s.HeartbeatLatency().String())
-	}
-
-	if m.Content == "baklava" {
-		s.ChannelMessageSend(m.ChannelID, "turkish TRTRTRRTRTRTRTRTR CcC")
-	}
-
-	if m.Content == "go.invite" {
-		s.ChannelMessageSend(m.ChannelID, "https://discord.com/oauth2/authorize?scope=applications.commands%20bot&permissions=268561488&client_id=1007010887447625748")
-	}
 }

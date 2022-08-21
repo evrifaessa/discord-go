@@ -1,4 +1,4 @@
-module yagiz.dev/bot
+module github.com/evrifaessa/discord-go
 
 go 1.18
 
