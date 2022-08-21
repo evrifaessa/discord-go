@@ -1,6 +1,11 @@
 package events
 
-import "github.com/bwmarrin/discordgo"
+import (
+	"fmt"
+
+	"github.com/bwmarrin/discordgo"
+	"github.com/evrifaessa/discord-go/commands"
+)
 
 func MessageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
 	// Ignore messages sent by bots. This also makes the bot ignore itself.
@@ -8,7 +13,7 @@ func MessageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
 		return
 	}
 
-	// If the message is "ping" reply with "Pong!"
+	// TODO: Register the commands to a map and dynamically load them.
 	if m.Content == "go.ping" {
 		s.ChannelMessageSend(m.ChannelID, "Pong! "+s.HeartbeatLatency().String())
 	}
@@ -18,6 +23,8 @@ func MessageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
 	}
 
 	if m.Content == "go.help" {
-		s.ChannelMessageSend(m.ChannelID, "```go\nCommands:\ngo.ping\ngo.invite\ngo.help\n```")
+		commands.Help(s, m)
+		// Testing
+		fmt.Println(commands.HelpConfig)
 	}
 }
