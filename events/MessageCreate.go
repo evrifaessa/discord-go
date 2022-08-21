@@ -1,8 +1,6 @@
 package events
 
 import (
-	"fmt"
-
 	"github.com/bwmarrin/discordgo"
 	"github.com/evrifaessa/discord-go/commands"
 )
@@ -15,16 +13,14 @@ func MessageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
 
 	// TODO: Register the commands to a map and dynamically load them.
 	if m.Content == "go.ping" {
-		s.ChannelMessageSend(m.ChannelID, "Pong! "+s.HeartbeatLatency().String())
+		commands.Ping.Run(s, m)
 	}
 
 	if m.Content == "go.invite" {
-		s.ChannelMessageSend(m.ChannelID, "https://discord.com/oauth2/authorize?scope=applications.commands%20bot&permissions=268561488&client_id=1007010887447625748")
+		commands.Invite.Run(s, m)
 	}
 
 	if m.Content == "go.help" {
-		commands.Help(s, m)
-		// Testing
-		fmt.Println(commands.HelpConfig)
+		commands.Help.Run(s, m)
 	}
 }

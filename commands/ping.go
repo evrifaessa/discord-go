@@ -5,8 +5,8 @@ import (
 	"github.com/evrifaessa/discord-go/structs"
 )
 
-var Help = structs.NewCommand(
-	"help",     // Name
+var Ping = structs.NewCommand(
+	"invite",   // Name
 	"misc",     // Category
 	[]string{}, // Aliases
 	true,       // Enabled
@@ -14,6 +14,6 @@ var Help = structs.NewCommand(
 	false,      // Hidden
 
 	func(s *discordgo.Session, m *discordgo.MessageCreate) {
-		s.ChannelMessageSend(m.ChannelID, "```go\nCommands:\ngo.ping\ngo.invite\ngo.help\n```")
+		s.ChannelMessageSend(m.ChannelID, "Pong! "+s.HeartbeatLatency().String())
 	},
 )
