@@ -5,9 +5,11 @@ import (
 	"fmt"
 	"os"
 	"os/signal"
+	"strconv"
 	"syscall"
 
 	"github.com/evrifaessa/discord-go/events"
+	"github.com/evrifaessa/discord-go/structs"
 
 	"github.com/bwmarrin/discordgo"
 )
@@ -37,6 +39,8 @@ func main() {
 		fmt.Println("error creating Discord session,", err)
 		return
 	}
+
+	fmt.Println("Successfully loaded " + strconv.Itoa(len(structs.Commands)) + " commands.")
 
 	/* Let's load our events into the memory.
 	 * Our events are in the events/ folder. Each file in this folder is a separate event.

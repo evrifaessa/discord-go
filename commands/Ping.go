@@ -6,7 +6,7 @@ import (
 )
 
 var Ping = structs.NewCommand(
-	"invite",   // Name
+	"ping",     // Name
 	"misc",     // Category
 	[]string{}, // Aliases
 	true,       // Enabled

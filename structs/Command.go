@@ -1,6 +1,8 @@
 package structs
 
-import "github.com/bwmarrin/discordgo"
+import (
+	"github.com/bwmarrin/discordgo"
+)
 
 type Runner func(s *discordgo.Session, m *discordgo.MessageCreate)
 
@@ -14,6 +16,9 @@ type Command struct {
 	Run          Runner
 }
 
+var Commands []Command
+
+// Creates a new command object.
 func NewCommand(name, category string, aliases []string, enabled, argsRequired, hidden bool, f Runner) *Command {
 	c := Command{
 		Name:         name,
@@ -24,7 +29,31 @@ func NewCommand(name, category string, aliases []string, enabled, argsRequired, 
 		Hidden:       hidden,
 		Run:          f,
 	}
+
+	Commands = append(Commands, c)
+
 	return &c
+}
+
+// Checks if a command exists.
+// TODO: Make this work with aliases.
+func CommandExists(name string) bool {
+	for _, c := range Commands {
+		if c.Name == name {
+			return true
+		}
+	}
+	return false
+}
+
+// TODO: Make this work with aliases.
+func GetCommand(name string) *Command {
+	for _, c := range Commands {
+		if c.Name == name {
+			return &c
+		}
+	}
+	return nil
 }
 
 func fallback(v, f string) string {
