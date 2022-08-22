@@ -2,7 +2,7 @@ package events
 
 import (
 	"github.com/bwmarrin/discordgo"
-	"github.com/evrifaessa/discord-go/structs"
+	"github.com/evrifaessa/discord-go/commands"
 )
 
 var Prefix (string) = "go."
@@ -15,14 +15,14 @@ func MessageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
 
 	// TODO: Register the commands to a map and dynamically load them.
 	if m.Content == Prefix+"ping" {
-		structs.GetCommand("ping").Run(s, m)
+		commands.Ping.Run(s, m)
 	}
 
 	if m.Content == Prefix+"invite" {
-		structs.GetCommand("invite").Run(s, m)
+		commands.Invite.Run(s, m)
 	}
 
 	if m.Content == Prefix+"help" {
-		structs.GetCommand("help").Run(s, m)
+		commands.Help.Run(s, m)
 	}
 }
